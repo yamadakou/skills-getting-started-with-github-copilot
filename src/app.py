@@ -27,17 +27,29 @@ activities = {
         "max_participants": 12,
         "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
     },
-    "Soccer Team": {
-        "description": "Practice teamwork, skills, and competition on the field",
+    "Soccer Club": {
+        "description": "Practice teamwork, skills, and competitive soccer drills",
         "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
-        "max_participants": 18,
-        "participants": ["lucas@mergington.edu", "ava@mergington.edu"]
+        "max_participants": 22,
+        "participants": ["liam@mergington.edu", "ava@mergington.edu"]
     },
-    "Swimming Club": {
-        "description": "Build endurance and technique through swim training",
-        "schedule": "Tuesdays and Thursdays, 6:00 PM - 7:00 PM",
-        "max_participants": 16,
+    "Basketball Club": {
+        "description": "Develop basketball skills, conditioning, and game strategy",
+        "schedule": "Tuesdays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 18,
         "participants": ["noah@mergington.edu", "mia@mergington.edu"]
+    },
+    "Art Club": {
+        "description": "Explore drawing, painting, and creative expression",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 15,
+        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
+    },
+    "Drama Club": {
+        "description": "Act, perform, and build confidence through theater",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": ["harper@mergington.edu", "elijah@mergington.edu"]
     },
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
@@ -45,29 +57,17 @@ activities = {
         "max_participants": 20,
         "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
     },
-    "Art Club": {
-        "description": "Explore painting, drawing, and creative expression",
-        "schedule": "Mondays, 3:30 PM - 5:00 PM",
-        "max_participants": 15,
-        "participants": ["isabella@mergington.edu", "henry@mergington.edu"]
-    },
-    "Drama Club": {
-        "description": "Develop acting, stage presence, and performance skills",
-        "schedule": "Wednesdays and Fridays, 3:30 PM - 5:00 PM",
-        "max_participants": 14,
-        "participants": ["charlotte@mergington.edu", "william@mergington.edu"]
-    },
     "Robotics Club": {
-        "description": "Design, build, and program robots for challenges",
-        "schedule": "Tuesdays, 4:00 PM - 5:30 PM",
-        "max_participants": 12,
-        "participants": ["oliver@mergington.edu", "amelia@mergington.edu"]
+        "description": "Build and program robots while solving engineering challenges",
+        "schedule": "Mondays, 3:30 PM - 5:00 PM",
+        "max_participants": 14,
+        "participants": ["oliver@mergington.edu", "charlotte@mergington.edu"]
     },
-    "Debate Team": {
-        "description": "Practice critical thinking, public speaking, and argumentation",
-        "schedule": "Thursdays, 3:45 PM - 5:15 PM",
-        "max_participants": 10,
-        "participants": ["elijah@mergington.edu", "harper@mergington.edu"]
+    "Science Olympiad": {
+        "description": "Compete in academic science challenges and experiments",
+        "schedule": "Fridays, 3:30 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["henry@mergington.edu", "amelia@mergington.edu"]
     },
     "Gym Class": {
         "description": "Physical education and sports activities",
@@ -101,7 +101,7 @@ def signup_for_activity(activity_name: str, email: str):
     # Validate student is not already signed up
     if email in activity["participants"]:
         raise HTTPException(status_code=400, detail="Student already signed up for this activity")
-    
+
     # Validate activity is not full
     if len(activity["participants"]) >= activity["max_participants"]:
         raise HTTPException(status_code=400, detail="Activity is full")
