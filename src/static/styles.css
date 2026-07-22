@@ -59,19 +59,166 @@ section h3 {
 
 .activity-card {
   margin-bottom: 15px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  padding: 18px;
+  border: 1px solid #d7e1f2;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.activity-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .activity-card h4 {
-  margin-bottom: 10px;
+  margin-bottom: 0;
   color: #0066cc;
+  font-size: 1.1rem;
+}
+
+.activity-badge {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: #e8eefc;
+  color: #1a237e;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .activity-card p {
   margin-bottom: 8px;
+}
+
+.activity-description {
+  color: #334155;
+}
+
+.activity-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.activity-meta p {
+  color: #475569;
+}
+
+.participants-section {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid #dbe7fb;
+  border-radius: 12px;
+  background-color: #f8fbff;
+}
+
+.participants-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.participants-title {
+  margin-bottom: 0;
+  color: #1a237e;
+  font-weight: 700;
+}
+
+.participants-count {
+  color: #5b6b8c;
+  font-size: 0.9rem;
+}
+
+.participants-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #334155;
+  display: grid;
+  gap: 10px;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #dbe4f0;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.participant-email {
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.participant-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #fecdd3;
+  border-radius: 999px;
+  background-color: #fff1f2;
+  cursor: pointer;
+}
+
+.participant-remove:hover {
+  background-color: #ffe4e6;
+}
+
+.participant-remove:focus-visible {
+  outline: 2px solid #1a237e;
+  outline-offset: 2px;
+}
+
+.participant-remove-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+}
+
+.participant-remove-icon::before,
+.participant-remove-icon::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background-color: #be123c;
+}
+
+.participant-remove-icon::before {
+  transform: rotate(45deg);
+}
+
+.participant-remove-icon::after {
+  transform: rotate(-45deg);
+}
+
+.participants-empty {
+  margin-bottom: 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .activity-card-header,
+  .participants-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .form-group {
@@ -108,10 +255,22 @@ button:hover {
   background-color: #3949ab;
 }
 
+button:disabled {
+  background-color: #94a3b8;
+  cursor: wait;
+}
+
 .message {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 4px;
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  max-width: min(360px, calc(100vw - 32px));
+  padding: 14px 16px;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  border: 1px solid transparent;
+  backdrop-filter: blur(10px);
 }
 
 .success {
@@ -134,6 +293,15 @@ button:hover {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 480px) {
+  .message {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
 }
 
 footer {
