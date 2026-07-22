@@ -15,14 +15,14 @@ def test_root_redirects_to_static_index(client):
 
 def test_get_activities_returns_all_activities_with_cache_control(client):
     # Arrange
-    expected_activity_names = set(app_module.activities)
+    expected_activities = app_module.activities
 
     # Act
     response = client.get("/activities")
 
     # Assert
     assert response.status_code == 200
-    assert set(response.json()) == expected_activity_names
+    assert response.json() == expected_activities
     assert response.headers["cache-control"] == "no-store, no-cache, must-revalidate, max-age=0"
 
 
