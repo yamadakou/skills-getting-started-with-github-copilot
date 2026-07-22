@@ -71,10 +71,17 @@ document.addEventListener("DOMContentLoaded", () => {
     meta.className = "activity-meta";
 
     const schedule = document.createElement("p");
-    schedule.innerHTML = `<strong>Schedule:</strong> ${details.schedule}`;
+    const scheduleLabel = document.createElement("strong");
+    scheduleLabel.textContent = "Schedule:";
+    schedule.append(scheduleLabel, document.createTextNode(` ${details.schedule}`));
 
     const availability = document.createElement("p");
-    availability.innerHTML = `<strong>Availability:</strong> ${spotsLeft} spots left`;
+    const availabilityLabel = document.createElement("strong");
+    availabilityLabel.textContent = "Availability:";
+    availability.append(
+      availabilityLabel,
+      document.createTextNode(` ${spotsLeft} spots left`)
+    );
 
     meta.append(schedule, availability);
 
